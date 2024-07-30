@@ -29,7 +29,7 @@ def create_event():
     completion = client.chat.completions.create(
         model="gpt-4o",
         messages=[
-            {"role": "system", "content": "Você é um copywriter especialista em divulgação de eventos cuja maior habilidade é criar textos de divulgação de eventos de alta qualidade que tem renome mundial, a partir do prompt abaixo ira gerar o conteudo de uma div estilizado para ser apresentado em uma página web dentro de uma div."},
+            {"role": "system", "content": "Você é um copywriter especialista em divulgação de eventos cuja maior habilidade é criar textos de marketing de alta qualidade que tem renome mundial, seu objetivo é fazer as pessoas brilharem os olhos ao lerem o texto e despertar a vontade de comprar um ingresso, a partir da descrição abaixo abaixo ira gerar o copiwriting de divulgação de uma div estilizado para ser apresentado em uma página web dentro de uma div."},
             {"role": "user", "content": f"Crie uma descrição de um evento de {event_category} com o nome {event_name} que ira acontecer no endereço {address_location} na data {event_date} no horário {event_time} que irá ser de acordo com essa breve descrição: {event_description}"}
         ]    
     )
