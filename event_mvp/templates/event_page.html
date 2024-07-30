@@ -1,16 +1,60 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ event.name }}</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .header {
+            margin-bottom: 30px;
+        }
+        .event-details p {
+            font-size: 1.2rem;
+        }
+        .event-banner img {
+            width: 100%;
+            height: auto;
+        }
+        .event-description {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        .event-description strong {
+            color: #007bff;
+        }
+    </style>
 </head>
 <body>
-    <h1>{{ event.name }}</h1>
-    <p><strong>Date:</strong> {{ event.date }}</p>
-    <p><strong>Time:</strong> {{ event.time }}</p>
-    <p><strong>Location:</strong> {{ event.location }}</p>
-    <p><strong>Category:</strong> {{ event.category }}</p>
-    <p><strong>Capacity:</strong> {{ event.capacity }}</p>
-    <p><strong>Description:</strong> {{ event.description }}</p>
-    <img src="{{ url_for('static', filename='images/' + event.name.replace(' ', '_') + '.png') }}" alt="Event Banner">
+    <div class="container">
+        <div class="header text-center">
+            <h1>{{ event.name }}</h1>
+        </div>
+        <div class="event-banner">
+            <img src="{{ url_for('static', filename='images/' + event.name.replace(' ', '_') + '.png') }}" alt="Event Banner">
+        </div>
+        <div class="event-description">
+            {{ event.description|safe }}
+        </div>
+        <div class="event-details">
+            <p><strong>Data:</strong> {{ event.date }}</p>
+            <p><strong>Horário:</strong> {{ event.time }}</p>
+            <p><strong>Local:</strong> {{ event.location }}</p>
+            <p><strong>Capacidade:</strong> {{ event.capacity }}</p>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

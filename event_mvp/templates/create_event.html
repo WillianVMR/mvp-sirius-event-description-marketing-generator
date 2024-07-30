@@ -1,30 +1,85 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt">
 <head>
-    <title>Create Event</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criação de Eventos</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .form-group label {
+            font-weight: bold;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+        .form-control:focus {
+            border-color: #007bff;
+            box-shadow: none;
+        }
+        .header {
+            margin-bottom: 30px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Create a New Event</h1>
-    <form action="{{ url_for('create_event') }}" method="POST">
-        <label for="event_name">Event Name:</label>
-        <input type="text" id="event_name" name="event_name" required><br><br>
-        <label for="event_date">Event Date:</label>
-        <input type="date" id="event_date" name="event_date" required><br><br>
-        <label for="event_time">Event Time:</label>
-        <input type="time" id="event_time" name="event_time" required><br><br>
-        <label for="event_location">Event Location:</label>
-        <input type="text" id="event_location" name="event_location" required><br><br>
-        <label for="event_category">Event Category:</label>
-        <select id="event_category" name="event_category" required>
-            <option value="sports">Sports</option>
-            <option value="music concert">Music Concert</option>
-            <option value="food event">Food Event</option>
-        </select><br><br>
-        <label for="event_capacity">Event Capacity:</label>
-        <input type="number" id="event_capacity" name="event_capacity" required><br><br>
-        <label for="event_description">Event Description (max 3 lines):</label><br>
-        <textarea id="event_description" name="event_description" rows="3" cols="50" required></textarea><br><br>
-        <button type="submit">Create Event</button>
-    </form>
+    <div class="container">
+        <div class="header text-center">
+            <h1>Vamos fazer seu evento bombar</h1>
+        </div>
+        <form action="{{ url_for('create_event') }}" method="POST">
+            <div class="form-group">
+                <label for="event_name">Nome do evento:</label>
+                <input type="text" class="form-control" id="event_name" name="event_name" required>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="event_date">Data do evento:</label>
+                    <input type="date" class="form-control" id="event_date" name="event_date" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="event_time">Horário do evento:</label>
+                    <input type="time" class="form-control" id="event_time" name="event_time" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="address_location">Endereço do Evento:</label>
+                <input type="text" class="form-control" id="address_location" name="address_location" required>
+            </div>
+            <div class="form-group">
+                <label for="event_category">Categoria do evento:</label>
+                <select id="event_category" class="form-control" name="event_category" required>
+                    <option value="sports">Esportes</option>
+                    <option value="music concert">Concerto de Música</option>
+                    <option value="food event">Evento Culinário</option>
+                    <!-- Colocar aqui as demais categorias de eventos-->
+                </select>
+            </div>
+            <!-- Incluir preço do evento aqui -->
+            <div class="form-group">
+                <label for="event_capacity">Capacidade do Evento:</label>
+                <input type="number" class="form-control" id="event_capacity" name="event_capacity" required>
+            </div>
+            <!-- Colocar um exemplo de descrição -->
+            <div class="form-group">
+                <label for="event_description">Breve descrição do evento (máximo de 3 linhas):</label>
+                <textarea id="event_description" class="form-control" name="event_description" rows="3" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Criar Evento</button>
+        </form>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
